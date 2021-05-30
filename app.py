@@ -11,7 +11,7 @@ app = Flask(__name__)
 model = pickle.load(open('modell.pkl', 'rb'))
 
 model_hwes = pickle.load(open('model_hwes.pkl', 'rb'))
-model_tbats = pickle.load(open('model_tbats.pkl', 'rb'))
+
 
 
 loaded = ARIMAResults.load('model.pkl')
@@ -32,9 +32,8 @@ def predict():
    
    # prediction = model.forecast(steps=int_features)
     # output = round(prediction[0], 2)
-    if(algo_value=="TBATS"):
-        output=model_tbats.summary()
-    elif(algo_value=="ARIMA"):
+ 
+    if(algo_value=="ARIMA"):
         output=loaded.summary()
     elif(algo_value=="HWES"):
         output=model_hwes.summary()

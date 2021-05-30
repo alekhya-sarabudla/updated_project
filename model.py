@@ -12,8 +12,7 @@ if __name__ ==  '__main__':
     import plotly.express as px
 #from prophet import Prophet
     from statsmodels.tsa.holtwinters import ExponentialSmoothing
-   
-    from tbats import TBATS
+
 
 
 
@@ -92,13 +91,6 @@ if __name__ ==  '__main__':
 
 #------------------tbats-------#
 
-    model_tbats=TBATS(seasonal_periods=[7,365.25])
-
-    model_tabts_fit=model_tbats.fit(dataset['apiTotalTime'])
-    pickle.dump(model_tbats_fit, open('model_tbats.pkl','wb'))
-
-
-
-
+  
 
 
