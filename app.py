@@ -35,10 +35,12 @@ def predict():
  
     if(algo_value=="ARIMA"):
         output=loaded.summary()
+        
     elif(algo_value=="HWES"):
         output=model_hwes.summary()
+        
 
-    return render_template('index.html', prediction_text='Summary of '+algo_value+' {}'.format(output))
+    return render_template('output.html', prediction_text='Summary of '+algo_value+' {}'.format(output))
 
 #@app.route('/predict_api',methods=['POST'])
 #def predict_api():

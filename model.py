@@ -10,7 +10,7 @@ if __name__ ==  '__main__':
     import pickle
     from datetime import datetime
     import plotly.express as px
-#from prophet import Prophet
+    from prophet import Prophet
     from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
 
@@ -65,13 +65,13 @@ if __name__ ==  '__main__':
 #print(model.predict([[2, 9, 6]]))
 
 #-------PROPHET-----------------------------
-#model_prophet = Prophet()
+    model_prophet = Prophet()
 # fit the model
-#model_prophet_fit=model_prophet.fit(dataset)
+    model_prophet_fit=model_prophet.fit(dataset)
 
 
 # Saving model to disk
-#pickle.dump(model_prophet_fit, open('model_prophet.pkl','wb'))
+    pickle.dump(model_prophet_fit, open('model_prophet.pkl','wb'))
 
 # Loading model to compare the results
 #model = pickle.load(open('model_prophet.pkl','rb'))
