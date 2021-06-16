@@ -86,7 +86,7 @@ def update_graph(n_clicks):
    
     font=dict(
         family="Times New Roman",
-        size=18,
+        size=20,
         color="blue"
          
     )
