@@ -27,6 +27,11 @@ def predict():
     '''
     int_features =request.form['predictionduration']
     algo_value= request.form['algorithm']
+    forecast=model.forecast(steps=int(int_features)*60)
+    pickle.dump(forecast, open('modell_predict.pkl','wb'))
+    model_a = pickle.load(open('modell_predict.pkl', 'rb'))
+    forecast,err,ci = model_a
+    
     #results = loaded.fit()
     #output=loaded.summary()
    
@@ -35,6 +40,7 @@ def predict():
  
     if(algo_value=="ARIMA"):
         output=loaded.summary()
+        #output=forecast
         
     elif(algo_value=="HWES"):
         output=model_hwes.summary()
@@ -42,16 +48,7 @@ def predict():
 
     return render_template('output.html', prediction_text='Summary of '+algo_value+' {}'.format(output))
 
-#@app.route('/predict_api',methods=['POST'])
-#def predict_api():
-    '''
-    For direct API calls trought request
-    '''
-    data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
-
-    output = prediction[0]
-    return jsonify(output)
+ 
 
 
 if __name__ == "__main__":
